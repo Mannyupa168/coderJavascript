@@ -1,4 +1,15 @@
-let name = prompt("Hola! Para comenzar por favor, indícame tu nombre.");
+class game {
+  constructor(gameName, genre, price) {
+    this.gameName = gameName;
+    this.genre = genre;
+    this.price = price;
+  }
+}
+const gameNew = new game("Deathstranding", "Open world", 13.29);
+
+let name = prompt(
+  "¡Hola! Bienvenido a Gameser Store. Para comenzar por favor, indícame tu nombre."
+);
 
 while (name === "") {
   alert("Ingresa un nombre válido.");
@@ -18,9 +29,11 @@ while (lastName === "") {
 
 alert("Bienvenido " + name + " " + lastName + " ");
 
-let answer = prompt("Te gustaría conocer el IVA de tus productos? (si / no)");
+let catalog = prompt(
+  "¿Te gustaría consultar nuestro catálogo de videjuegos? (si / no)"
+);
 
-if (answer == "si") {
+if (catalog == "si") {
   let country = prompt(
     "¿Cuál es tu país de latinoamérica del que nos visitas? (Escribe el nombre completo de tu país)"
   );
