@@ -1,62 +1,128 @@
+/* Functions */
+
+function validation(text) {
+  var regex = new RegExp("^[A-Z]+$", "i");
+
+  while (regex.test(text) == false) {
+    alert("Ingresa caracteres de texto");
+    text = prompt("Vuelve a ingresar tu nombre o apellido:");
+  }
+}
+
+function showGames(games) {
+  var output = "";
+  for (var property in games) {
+    output += property + ": " + games[property] + "\n";
+  }
+  alert(output);
+}
+
+function buyGame(videogame){
+  while (videogame != "0") {
+    switch (videogame) {
+      case "1":
+        console.log(videogame);
+        alert(
+          "Adquiriste el juego: " + game1.Nombre + " por " + game1.Precio
+        );
+        break;
+      case "2":
+        alert(
+          "Adquiriste el juego: " + game2.Nombre + " por " + game2.Precio
+        );
+        break;
+      case "3":
+        alert(
+          "Adquiriste el juego: " + game3.Nombre + " por " + game3.Precio
+        );
+        break;
+      case "4":
+        alert(
+          "Adquiriste el juego: " + game4.Nombre + " por " + game4.Precio
+        );
+        break;
+    }
+    alert("Gracias por tu compra. Vuelve pronto.")
+    break;
+  }
+}
+
+/* Classes */
 class game {
-  constructor(gameName, genre, price) {
-    this.gameName = gameName;
-    this.genre = genre;
-    this.price = price;
+  constructor(Nombre, Plataforma, Género, Precio) {
+    this.Nombre = Nombre;
+    this.Plataforma = Plataforma;
+    this.Género = Género;
+    this.Precio = Precio;
   }
 }
-const gameNew = new game("Deathstranding", "Open world", 13.29);
+const game1 = new game(
+  "Deathstranding",
+  "Playstation",
+  "Open world",
+  29.25 + " USD"
+);
+const game2 = new game("Daysgone", "PC", "Open world", 37.49 + " USD");
+const game3 = new game("Battlefield 2042", "Xbox", "Action", 44.53 + " USD");
+const game4 = new game("Pokemon", "Nintendo", "Adventure", 36.29 + " USD");
 
-let name = prompt(
-  "¡Hola! Bienvenido a Gameser Store. Para comenzar por favor, indícame tu nombre."
+/*User experience*/
+
+let account = prompt(
+  "¡Hola! Bienvenido a Gameser Store. ¿Tienes cuenta con nosotros? (Si / No)"
 );
 
-while (name === "") {
-  alert("Ingresa un nombre válido.");
-  name = prompt("Hola! Para comenzar por favor, indícame tu nombre.");
-}
-
-let lastName = prompt(
-  "Bienvenido " + name + " de favor indícame tu apellido" + " "
-);
-
-while (lastName === "") {
-  alert("Ingresa un apellido válido.");
-  lastName = prompt(
-    "Bienvenido " + name + " de favor indícame tu apellido" + " "
+if (account == "Si") {
+  let question1 = prompt(
+    "¿Te gustaría ver nuestro catálogo de productos? (Si / No)"
   );
-}
+  if (question1 == "Si") {
+    showGames(game1);
+    showGames(game2);
+    showGames(game3);
+    showGames(game4);
 
-alert("Bienvenido " + name + " " + lastName + " ");
+    let question2 = prompt(
+      "¿Cual de los juegos que viste anteriormente te gustaria adquirir? Ingresa el número del juego" +
+        "\n" +
+        "Juego 1: Deathstranding, Juego 2: Daysgone, Juego 3: Battlefield 2042 o Juego 4:Pokemon"
+    );
 
-let catalog = prompt(
-  "¿Te gustaría consultar nuestro catálogo de videjuegos? (si / no)"
-);
+    buyGame(question2);
 
-if (catalog == "si") {
-  let country = prompt(
-    "¿Cuál es tu país de latinoamérica del que nos visitas? (Escribe el nombre completo de tu país)"
-  );
-
-  if (country === "Mexico") {
-    iva = 0.16;
-  } else if (country === "Argentina") {
-    iva = 0.21;
-  } else if (country === "Chile") {
-    iva = 0.19;
-  } else if (country === "Perú") {
-    iva = 0.18;
-  } else if (country === "Venezuela") {
-    iva = 0.12;
-  } else if (country === "Uruguay") {
-    iva = 0.22;
   }
+  if (question1 == "No") {
+    alert("Gracias por visitarnos. Vuelva pronto.");
+  }
+}
+if (account == "No") {
+  alert("Crea una cuenta con solo ingresar tu nombre y apellido");
+  let userName = prompt("Ingresa tu(s) nombre(s): ");
+  validation(userName);
 
-  let price = parseInt(prompt("¿Cuál es el precio de tu producto?"));
+  let userLastName = prompt("Ingresa tu apellido: ");
+  validation(userLastName);
 
-  let tax = price * iva;
+  alert("Bienvenido " + userName + " " + userLastName + " ");
 
-  alert("El IVA de tu producto es: " + "$" + tax);
-} else {
-  alert("Gracias por usar la calculadora de IVA, buen día.");
+  let question1 = prompt(
+    "¿Te gustaría ver nuestro catálogo de productos? (Si / No)"
+  );
+  if (question1 == "Si") {
+    showGames(game1);
+    showGames(game2);
+    showGames(game3);
+    showGames(game4);
+
+    let question2 = prompt(
+      "¿Cual de los juegos que viste anteriormente te gustaria adquirir? Ingresa el número del juego" +
+        "\n" +
+        "Juego 1: Deathstranding, Juego 2: Daysgone, Juego 3: Battlefield 2042 o Juego 4:Pokemon"
+    );
+
+    buyGame(question2);
+  }
+  if (question1 == "No") {
+    alert("Gracias por visitarnos. Vuelva pronto.");
+  }
 }
