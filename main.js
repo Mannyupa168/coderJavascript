@@ -1,3 +1,29 @@
+/* Catalog */
+const products = [
+  {
+    id: 1,
+    game: "Daysgone",
+    platform: "PC",
+    genre: "Open World",
+    price: 37.49,
+  },
+  {
+    id: 2,
+    game: "Battlefield 2042",
+    platform: "Xbox",
+    genre: "Action",
+    price: 44.53,
+  },
+  {
+    id: 3,
+    game: "Pokemon",
+    platform: "Playstation",
+    genre: "Adventure",
+    price: 36.29,
+  },
+  { id: 4, game: "Elden Ring", platform: "PC", genre: "Action", price: 28.74 },
+];
+
 /* Functions */
 
 function validation(text) {
@@ -17,32 +43,24 @@ function showGames(games) {
   alert(output);
 }
 
-function buyGame(videogame){
+function buyGame(videogame) {
   while (videogame != "0") {
     switch (videogame) {
       case "1":
         console.log(videogame);
-        alert(
-          "Adquiriste el juego: " + game1.Nombre + " por " + game1.Precio
-        );
+        alert("Adquiriste el juego: " + game1.Nombre + " por " + game1.Precio);
         break;
       case "2":
-        alert(
-          "Adquiriste el juego: " + game2.Nombre + " por " + game2.Precio
-        );
+        alert("Adquiriste el juego: " + game2.Nombre + " por " + game2.Precio);
         break;
       case "3":
-        alert(
-          "Adquiriste el juego: " + game3.Nombre + " por " + game3.Precio
-        );
+        alert("Adquiriste el juego: " + game3.Nombre + " por " + game3.Precio);
         break;
       case "4":
-        alert(
-          "Adquiriste el juego: " + game4.Nombre + " por " + game4.Precio
-        );
+        alert("Adquiriste el juego: " + game4.Nombre + " por " + game4.Precio);
         break;
     }
-    alert("Gracias por tu compra. Vuelve pronto.")
+    alert("Gracias por tu compra. Vuelve pronto.");
     break;
   }
 }
@@ -89,7 +107,6 @@ if (account == "Si") {
     );
 
     buyGame(question2);
-
   }
   if (question1 == "No") {
     alert("Gracias por visitarnos. Vuelva pronto.");
